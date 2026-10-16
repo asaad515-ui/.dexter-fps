@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dexter FPS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:white;font-family:Arial;padding:24px}
+header{text-align:center;padding:30px 0}
+h1{color:#54e5ff;font-size:34px}
+p{color:#b6c2d4;line-height:1.7}
+.panel{background:#121a28;border:1px solid #29384c;border-radius:18px;padding:20px;margin-top:20px}
+input,select,button{width:100%;padding:14px;margin-top:14px;border-radius:10px;font-size:16px}
+input,select{background:#080f1b;color:white;border:1px solid #34445b}
+button{background:#54e5ff;color:#081018;border:0;font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<h1>DEXTER FPS</h1>
+<p>حسّن سلاسة مقاطعك</p>
+</header>
+<div class="panel">
+<h2>اختر الفيديو 🎬</h2>
+<input type="file" id="video" accept="video/*">
+<p>معدل الإطارات المستهدف</p>
+<select id="fps">
+<option>60 FPS</option>
+<option selected>120 FPS</option>
+</select>
+<button onclick="checkVideo()">فحص الفيديو</button>
+<p id="status">اختر فيديو للبدء.</p>
+</div>
+<script>
+function checkVideo(){
+const f=document.getElementById('video').files[0];
+const s=document.getElementById('status');
+if(!f){s.textContent='اختر فيديو أولاً.';return;}
+s.textContent='اسم الفيديو: '+f.name+
+'\nالحجم: '+(f.size/1048576).toFixed(2)+' MB'+
+'\nالمعدل المستهدف: '+document.getElementById('fps').value+
+'\n\nهذه نسخة تجريبية لواجهة التطبيق. تحويل الفيديو الفعلي إلى 120 FPS يحتاج إلى محرك معالجة.';
+}
+</script>
+</body>
+</html>
